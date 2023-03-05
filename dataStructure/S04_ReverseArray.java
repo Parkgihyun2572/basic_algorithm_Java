@@ -25,6 +25,8 @@ public class S04_ReverseArray {
 	static void reverse(int[] a) {
 		for(int i = 0; i < a.length/2; i++) {
 			swap(a, i, a.length - 1 - i);
+			System.out.println("a[" + i + "]과(와) a[" + (a.length - 1 - i) + "]를 교환합니다.");
+			showArray(a);
 		}
 	}
 	
@@ -48,6 +50,6 @@ public class S04_ReverseArray {
 		}
 		showArray(a);
 		reverse(a);
-		showArray(a);
+		System.out.println("역순 정렬을 마쳤습니다.");
 	}
 }
