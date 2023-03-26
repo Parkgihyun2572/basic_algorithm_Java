@@ -8,6 +8,63 @@
 
 package search;
 
+import java.util.Scanner;
+
 public class BinarySearch {
 
+	static int[] makeNewArray() {
+		Scanner sc = new Scanner(System.in);
+
+		System.out.print("만들 배열의 요솟수를 입력해주세요: ");
+		int length = sc.nextInt();
+
+		int[] array = new int[length];
+		for (int i = 0; i < array.length; i++) {
+			System.out.print("array[" + i + "] = ");
+			array[i] = sc.nextInt();
+		}
+		return array;
+	}
+
+	static void showArray(int[] array) {
+		System.out.print("array = [");
+		for (int i : array) {
+			System.out.print(" " + i);
+		}
+		System.out.println(" ]");
+	}
+
+	public static void main(String[] args) {
+
+		int[] array = makeNewArray();
+		showArray(array);
+
+		Scanner sc = new Scanner(System.in);
+		System.out.print("찾을 값을 입력해주세요: ");
+		int key = sc.nextInt();
+		int idx = -1;
+
+		int startIdx = 0;
+		int endIdx = array.length - 1;
+		int centerIdx = endIdx / 2;
+
+		while (startIdx <= endIdx) {
+			if (key == array[centerIdx]) {
+				idx = centerIdx;
+				break;
+			} else if (key > array[centerIdx]) {
+				startIdx = centerIdx + 1;
+				centerIdx = (startIdx + endIdx) / 2;
+			} else {
+				endIdx = centerIdx - 1;
+				centerIdx = (startIdx + endIdx) / 2;
+			}
+		}
+
+		if (idx != -1) {
+			System.out.println("찻는 값의 위치는 array[" + idx + "]에 있습니다.");
+		} else {
+			System.out.println("검색에 실패하였습니다.");
+		}
+	}
 }
