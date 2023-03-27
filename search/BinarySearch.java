@@ -13,6 +13,7 @@ import java.util.Scanner;
 public class BinarySearch {
 
 	static int[] makeNewArray() {
+		
 		Scanner sc = new Scanner(System.in);
 
 		System.out.print("만들 배열의 요솟수를 입력해주세요: ");
